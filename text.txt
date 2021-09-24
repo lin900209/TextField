@@ -1,0 +1,43 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('TextField Example'),
+        ),
+        body: HomePage(),
+      ),
+    );
+  }
+}
+class HomePage extends StatelessWidget {
+  final TextEditingController myController = new TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: <Widget>[
+          TextField(
+            controller: myController,
+            decoration: InputDecoration(hintText: '請輸入...'),
+          ),
+          RaisedButton(
+            child: Text('印出輸入框內容'),
+            color: Colors.yellow,
+            onPressed: btnEvent,
+          )
+        ],
+      ),
+    );
+  }
+  void btnEvent() {
+    print(myController.text);
+  }
+}
